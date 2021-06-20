@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv('datasets/persona.csv')
+df = pd.read_csv('persona.csv')
 
 df.head()
 """ OUTPUT:
