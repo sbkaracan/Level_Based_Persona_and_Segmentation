@@ -86,7 +86,7 @@ mylabels = ['0_18', '19_23', '24_30', '31_40', '41_' + str(agg_df["AGE"].max())]
 
 agg_df["age_cat"] = pd.cut(agg_df["AGE"], bins, labels=mylabels) # intervals are made with the help of cut function.
 agg_df.head()
-"""
+""" OUTPUT:
   COUNTRY   SOURCE     SEX  AGE  PRICE age_cat
 0     usa  android    male   15   3917    0_18
 1     bra  android    male   19   2606    0_18
@@ -103,7 +103,7 @@ agg_df.head()
 # under the customers_level_based column we combine other columns with "_". (USA_ANDROID_MALE_0_18)
 agg_df["customers_level_based"] = [row[0].upper() + "_" + row[1].upper() + "_" + row[2].upper() + "_" + row[5].upper() for row in agg_df.values]
 agg_df.head()
-"""
+""" OUTPUT:
   COUNTRY   SOURCE     SEX  AGE  PRICE age_cat     customers_level_based
 0     usa  android    male   15   3917    0_18     USA_ANDROID_MALE_0_18
 1     bra  android    male   19   2606    0_18     BRA_ANDROID_MALE_0_18
@@ -115,7 +115,7 @@ agg_df.head()
 # Having only important columns. Others are not needed anymore.
 agg_df = agg_df[["customers_level_based", "PRICE"]]
 agg_df.head()
-"""
+""" OUTPUT:
       customers_level_based  PRICE
 0     USA_ANDROID_MALE_0_18   3917
 1     BRA_ANDROID_MALE_0_18   2606
@@ -133,7 +133,7 @@ agg_df = agg_df.groupby("customers_level_based").agg({"PRICE": "mean"})
 agg_df = agg_df.reset_index()
 agg_df.head()
 
-"""
+""" OUTPUT:
       customers_level_based        PRICE
 0   BRA_ANDROID_FEMALE_0_18  1139.800000
 1  BRA_ANDROID_FEMALE_19_23  1070.600000
@@ -210,7 +210,7 @@ agg_df.head(30)
 
 # Average of each segment
 agg_df.groupby("SEGMENT").agg({"PRICE": "mean"})
-"""
+""" OUTPUT:
               PRICE
 SEGMENT            
 D        121.261728
@@ -222,7 +222,7 @@ A        886.461464
 
 # Analyzing segment C
 agg_df[agg_df["SEGMENT"] == "C"]
-"""
+""" OUTPUT:
         customers_level_based       PRICE SEGMENT
 3    BRA_ANDROID_FEMALE_31_40  233.166667       C
 4    BRA_ANDROID_FEMALE_41_66  236.666667       C
@@ -261,7 +261,7 @@ agg_df[agg_df["SEGMENT"] == "C"]
 new_user = "TUR_ANDROID_FEMALE_31_40"
 
 agg_df[agg_df["customers_level_based"] == new_user]
-"""
+""" OUTPUT:
        customers_level_based  PRICE SEGMENT
 72  TUR_ANDROID_FEMALE_31_40  215.0       C
 """
@@ -271,7 +271,7 @@ agg_df[agg_df["customers_level_based"] == new_user]
 new_user = "FRA_IOS_FEMALE_31_40"
 
 agg_df[agg_df["customers_level_based"] == new_user]
-"""
+""" OUTPUT:
    customers_level_based  PRICE SEGMENT
 63  FRA_IOS_FEMALE_31_40  165.0       D
 """
