@@ -10,7 +10,7 @@
 - Country
 - Age
 
-### Dataset:
+#### Dataset:
 
 ![df1](https://i.hizliresim.com/dplh4gu.png)
 
@@ -18,9 +18,9 @@
 
 ### At the end of the project, we will have a dataframe that shows each customer personas related to their features, segmentations and average of money we earn from them.
 
-### Result Dataframe
+#### Result Dataframe
 ![df2](https://i.hizliresim.com/379c1cp.png)
 
-### Note: At the persona.py file, you can see the output of some important lines at the comment line.
+#### Note: At the persona.py file, you can see the output of some important lines at the comment line.
 
-### Keywords: Persona, Level Based Persona, Segmentation, Rule Based Classification
+#### Keywords: Persona, Level Based Persona, Segmentation, Rule Based Classification
